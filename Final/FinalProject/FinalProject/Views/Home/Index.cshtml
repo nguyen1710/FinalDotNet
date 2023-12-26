@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<ItemCatalog>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="box_main ">
+                    <h4 class="name_text">@item.ProductName</h4>
+                    <p class="price_text">Price : @item.RetailPrice </p>
+                    <div class="electronic_img">
+                        @{
+                            var itemName = item.ProductName;
+                        }
+                        <img src="~/img/@(itemName).jpg" alt="Product Picture">
+                    </div>
+                    <div class="btn_main">
+                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                        <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>
+    <style>
+        .box_main {
+            width: 100%;
+            background-color: #ffffff;
+            height: auto;
+            padding: 20px;
+            box-shadow: 0px 0 30px 10px #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .name_text {
+            width: 100%;
+            font-size: 20px;
+            color: #30302e;
+            text-align: center;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        .price_text {
+            width: 100%;
+            font-size: 16px;
+            color: #f26522;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .electronic_img {
+            max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của thẻ cha */
+            text-align: center;
+            margin: 50px 0px;
+            overflow: hidden; /* Ẩn phần ngoài phạm vi của .electronic_img */
+        }
+
+            .electronic_img img {
+                width: auto;
+                max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của thẻ cha */
+                height: auto; /* Tự động điều chỉnh chiều cao để duy trì tỷ lệ khung hình */
+                display: block; /* Loại bỏ khoảng trắng dưới ảnh khi nó là inline-block */
+                margin: 0 auto; /* Căn giữa theo chiều ngang */
+            }
+
+        .btn_main {
+            width: 100%;
+            display: flex;
+        }
+
+        .buy_bt {
+            float: left;
+            width: 100%;
+        }
+
+            .buy_bt a {
+                width: 100%;
+                font-size: 16px;
+                color: #f26522;
+                background-color: transparent;
+                text-align: right;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+                .buy_bt a:hover {
+                    background-color: transparent;
+                    color: #262626;
+                }
+
+        .seemore_bt {
+            width: 100%;
+            float: right;
+            text-align: right;
+        }
+
+            .seemore_bt a {
+                width: 100%;
+                font-size: 16px;
+                color: #262626;
+                background-color: transparent;
+                text-align: right;
+                text-decoration: none;
+            }
+
+                .seemore_bt a:hover {
+                    background-color: transparent;
+                    color: #f26522;
+                }
+    </style>
